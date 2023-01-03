@@ -51,7 +51,7 @@
  
             <td align="center" width="200" bgcolor="pink">
                 <!-- 글자를 누르면 화면이 넘어갈수 있도록 a태그를 걸어줌 --> <font color="white" size="5"><a
-                    href="#" style="text-decoration: none"> 이 벤 트 </a></font>
+                    href="#" style="text-decoration: none"> 회 원 가 입 </a></font>
             </td>
  
             <td align="center" width="200" bgcolor="pink">
