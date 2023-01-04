@@ -10,8 +10,9 @@
 <%
 //Cookie user = new Cookie("id", "");
 session.invalidate();//세션의 모든 속성 제거
-response.sendRedirect("RentcarMain.jsp");
+response.sendRedirect("RentcarMain");
 %>
-<!-- 로그아웃 처리 완료 -->
+<h4>로그아웃 완료</h4>
+
 </body>
 </html>

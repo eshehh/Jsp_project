@@ -24,7 +24,6 @@ public class RentcarDAO {
  
             Context initctx = new InitialContext(); // 외부서버로 부터 데이터를 읽어들이는것이기 때문에 드라이버가 없을수 있어
             Context envctx = (Context) initctx.lookup("java:comp/env"); // 자바를 읽어들일수 있는 환경에서 사용 //예외처리를 해준다.
-
             DataSource ds = (DataSource) envctx.lookup("jdbc/pool");
             con = ds.getConnection();
             // 데이터소스에 username, url, password를 집어넣는다. 그렇게 하면 데이터소스가 커넥션을 얻어 온다.
@@ -44,7 +43,7 @@ public class RentcarDAO {
  
         try {
  
-            String sql = "select * from RENTCAR order by no desc ";
+            String sql = "select * from rentcar order by no desc ";
             pstmt = con.prepareStatement(sql);
             // 쿼리 실행후 실행결과 Result리턴함
             rs = pstmt.executeQuery();
@@ -198,32 +197,26 @@ public class RentcarDAO {
     }
  
     // 회원 정보가 있는지를 비교한다.
-    public int getMember(String id, String pass) {
-        int result = 0; // 0이면 회원이 없다고 가정
-        getcon();
- 
-        try {
-            String sql = "select count(*) from member where id=? and pass1=?";
-            pstmt = con.prepareStatement(sql);
-            // sql문에 ?표가 들어가 있으면 초기 인덱스 값을 할당해주어야 한다.
- 
-            pstmt.setString(1, id);
-            pstmt.setString(2, pass);
- 
-            rs = pstmt.executeQuery();
- 
-            if (rs.next()) {
-                result = rs.getInt(1); // 0또는 1이 저장된다. 0이면 회원이 없는거고, 1이면 있는것
-            }
- 
-            con.close();
- 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return result;
- 
-    }
+	/*
+	 * public int getMember(String id, String pass) { int result = 0; // 0이면 회원이 없다고
+	 * 가정 getcon();
+	 * 
+	 * try { String sql = "select count(*) from member where id=? and pass1=?";
+	 * pstmt = con.prepareStatement(sql); // sql문에 ?표가 들어가 있으면 초기 인덱스 값을 할당해주어야 한다.
+	 * 
+	 * pstmt.setString(1, id); pstmt.setString(2, pass);
+	 * 
+	 * rs = pstmt.executeQuery();
+	 * 
+	 * if (rs.next()) { result = rs.getInt(1); // 0또는 1이 저장된다. 0이면 회원이 없는거고, 1이면 있는것
+	 * }
+	 * 
+	 * con.close();
+	 * 
+	 * } catch (Exception e) { e.printStackTrace(); } return result;
+	 * 
+	 * }
+	 */
  
     // 하나의 예약 정보를 저장하는 메소드
     public void setReserveCar(CarReserveBean bean) {

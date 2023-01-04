@@ -12,11 +12,11 @@
     String rday = request.getParameter("rday");
     System.out.println("첫번째"+id);
     
-    RentcarDAO rdao = new RentcarDAO();
+     RentcarDAO rdao = new RentcarDAO();
     //예약삭제 메소드 호출
     rdao.carRemoveReserve(id,rday);
     System.out.println("두번째"+id);
-    response.sendRedirect("RentcarMain.jsp");
+    response.sendRedirect("RentcarMain.jsp"); 
 %>
  
 </body>

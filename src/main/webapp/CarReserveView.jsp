@@ -20,7 +20,7 @@
     %>
     <script>
         //로그인 페이지를 보여준다.
-        alert("로그인");
+        alert("로그인이 필요합니다");
         location.href = 'RentcarMain.jsp?center=MemberLogin.jsp';
     </script>
  

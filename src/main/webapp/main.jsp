@@ -19,7 +19,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Join Main</title>
 </head>
 <body>
@@ -47,7 +47,7 @@
         <h2>나의 회원정보</h2>
         <table border ="1" align="center">
             <tr>
-                    <td>아이디:</td><td><%= id %></td>
+                <td>아이디:</td><td><%= id %></td>
             </tr>
             <tr>
                 <td>이름:</td><td><%=rs.getString("name")%></td>
@@ -75,7 +75,7 @@
     <br>
     <a href="modifyForm.jsp" align = "center">정보수정</a>    <!-- 정보수정을 원하면 modifyForm.jsp로 이동한다 -->
     
-    <%-- <%
+    <%
         if (id.equals("admin")) {    //admin이라는 아이디는 관리자이다. 관리자가 로그인 하였을 시에는 관리자모드 접속을 하도록 코딩하였다.
     %>
     <!-- //관리자(admin)접속시 -->
@@ -84,7 +84,7 @@
         }
     %>
     
-  --%>
+ 
   <form action ="RentcarMain.jsp"><input type="submit" value="메인으로"></form>
   
     </center>
