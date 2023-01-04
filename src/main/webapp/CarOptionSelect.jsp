@@ -1,15 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+    <%@page import="db.CarListBean"%>
+    <%@page import="db.RentcarDAO"%>
 <html>
 <body>
+
     <% 
     int no = Integer.parseInt(request.getParameter("no"));
     
     //차량 수량
     int qty = Integer.parseInt(request.getParameter("qty"));
     //이미지를 가져옴
-    String img = request.getParameter("img");
+    /* String img = request.getParameter("img"); */
+    RentcarDAO rdao = new RentcarDAO();
+    CarListBean bean = rdao.getOneCar(no);
 %>
+
     <div style="text-align: center;">
         <form action="RentcarMain.jsp?center=CarReserveResult.jsp"
             method="post">
@@ -22,7 +28,7 @@
                     <!-- colspan은 가로셀끼리 병합하는 것이고, rowspan은 세로 셀끼리 병합하는 것 -->
                     <!-- 차량 사진 옆에 정보들이 떠야하기때문에 세로병합인 rowspan을 사용 -->
                     <td rowspan="7" width="500" align="center"><img alt=""
-                        src="img/<%=img %>" width="450"></td>
+                        src="img/<%=bean.getImg()%>" width="450"></td>
                     <td width="250" align="center">대여기간</td>
                     <td width="250" align="center"><select name="dday">
                             <option value="1">1일</option>
@@ -80,5 +86,6 @@
             </table>
         </form>
     </div>
+    
 </body>
 </html>
