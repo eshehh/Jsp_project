@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,7 +10,7 @@
     <center>
         <table width="1000">
             <tr height="600">
-                <!-- ¼¾ÅÍ¿¡ Ãâ·ÂµÉ ÀÌ¹ÌÁö¸¦ Ãß°¡ -->
+                <!-- ì„¼í„°ì— ì¶œë ¥ë  ì´ë¯¸ì§€ë¥¼ ì¶”ê°€ -->
                 <td align="center"><img alt="" src="img/Main.png" height="470"
                     width="1000"></td>
             </tr>

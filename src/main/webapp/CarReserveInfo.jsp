@@ -1,28 +1,28 @@
 <%@page import="db.CarListBean"%>
 <%@page import="db.RentcarDAO"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8""%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <body>
  
 <% 
-    //Â÷·®ÀÇ »ó¼¼Á¤º¸¸¦ º¸±âÀ§ÇØ no°ªÀ» °¡Á®¿Â´Ù.
+    //ì°¨ëŸ‰ì˜ ìƒì„¸ì •ë³´ë¥¼ ë³´ê¸°ìœ„í•´ noê°’ì„ ê°€ì ¸ì˜¨ë‹¤.
     int no = Integer.parseInt(request.getParameter("no"));
  
-    //µ¥ÀÌÅÍº£ÀÌ½º¿¡ Á¢±Ù
+    //ë°ì´í„°ë² ì´ìŠ¤ì— ì ‘ê·¼
     RentcarDAO rdao = new RentcarDAO();
-    //·»Æ®Ä« ÇÏ³ª¿¡ ´ëÇÑ Á¤º¸¸¦ ¾ò¾î¿È
+    //ë ŒíŠ¸ì¹´ í•˜ë‚˜ì— ëŒ€í•œ ì •ë³´ë¥¼ ì–»ì–´ì˜´
     CarListBean bean = rdao.getOneCar(no);
     
     int category = bean.getCategory();
     String temp = "";
     if (category == 1)
-        temp = "¼ÒÇü";
+        temp = "ì†Œí˜•";
     else if (category == 2)
-        temp = "ÁßÇü";
+        temp = "ì¤‘í˜•";
     else if (category == 3)
-        temp = "´ëÇü";
+        temp = "ëŒ€í˜•";
     
 %>
 <center>
@@ -30,20 +30,20 @@
 <table width= "1000" >
 <tr height="100">
             <td align="center" colspan="3"><font size="6" color="gray">
-                        <%=bean.getName() %> Â÷·® ¼±ÅÃ
+                        <%=bean.getName() %> ì°¨ëŸ‰ ì„ íƒ
                 </font></td>
             </tr>
             <tr>
-            <!-- colspanÀº °¡·Î¼¿³¢¸® º´ÇÕÇÏ´Â °ÍÀÌ°í, rowspanÀº ¼¼·Î ¼¿³¢¸® º´ÇÕÇÏ´Â °Í -->
-            <!-- Â÷·® »çÁø ¿·¿¡ Á¤º¸µéÀÌ ¶°¾ßÇÏ±â¶§¹®¿¡ ¼¼·Îº´ÇÕÀÎ rowspanÀ» »ç¿ë -->
+            <!-- colspanì€ ê°€ë¡œì…€ë¼ë¦¬ ë³‘í•©í•˜ëŠ” ê²ƒì´ê³ , rowspanì€ ì„¸ë¡œ ì…€ë¼ë¦¬ ë³‘í•©í•˜ëŠ” ê²ƒ -->
+            <!-- ì°¨ëŸ‰ ì‚¬ì§„ ì˜†ì— ì •ë³´ë“¤ì´ ë– ì•¼í•˜ê¸°ë•Œë¬¸ì— ì„¸ë¡œë³‘í•©ì¸ rowspanì„ ì‚¬ìš© -->
             <td rowspan="6" width="500" align="center">
             <img alt="" src="img/<%=bean.getImg()%>" width="450"></td>
-            <td width="250" align="center"> Â÷·®ÀÌ¸§</td>
+            <td width="250" align="center"> ì°¨ëŸ‰ì´ë¦„</td>
             <td width="250" align="center"> <%=bean.getName() %></td>
             </tr>
             
             <tr>
-            <td width="250" align="center"> Â÷·®¼ö·®</td>
+            <td width="250" align="center"> ì°¨ëŸ‰ìˆ˜ëŸ‰</td>
             <td width="250" align="center"> <select name = "qty">
             <option value="1">1</option>
             <option value="2">2</option>
@@ -54,31 +54,31 @@
             
             
             <tr>
-            <td width="250" align="center"> Â÷·®ºÐ·ù</td>
+            <td width="250" align="center"> ì°¨ëŸ‰ë¶„ë¥˜</td>
             <td width="250" align="center"> <%=temp %>
             </tr>
             
             <tr>
-            <td width="250" align="center"> ´ë¿©°¡°Ý</td>
-            <td width="250" align="center"> <%=bean.getPrice() %>¿ø</td>
+            <td width="250" align="center"> ëŒ€ì—¬ê°€ê²©</td>
+            <td width="250" align="center"> <%=bean.getPrice() %>ì›</td>
             </tr>
            
             <tr>
-            <td width="250" align="center"> Á¦Á¶È¸»ç</td>
+            <td width="250" align="center"> ì œì¡°íšŒì‚¬</td>
             <td width="250" align="center"> <%=bean.getCompany() %></td>
             </tr>
              
             <tr>
             <td align="center" colspan="2">
                 <input type = "hidden" name ="no" value="<%=bean.getNo() %>">
-                <input type="submit" value="¿É¼Ç¼±ÅÃÈÄ ±¸¸ÅÇÏ±â">
+                <input type="submit" value="ì˜µì…˜ì„ íƒí›„ êµ¬ë§¤í•˜ê¸°">
                 </td>
             </tr>
             
 </table>
  </form>
 <br><br><br>
-<font size="6" color="gray"> Â÷·® Á¤º¸ º¸±â </font>
+<font size="6" color="gray"> ì°¨ëŸ‰ ì •ë³´ ë³´ê¸° </font>
 <p>
 <%=bean.getInfo() %>
 </center>

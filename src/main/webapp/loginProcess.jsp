@@ -38,7 +38,7 @@
    }
   }
   out.println("<script>");
-  out.println("location.href='main.jsp'"); 
+  out.println("location.href='MemberLogin.jsp'"); 
   out.println("</script>");
  }catch(Exception e){
   e.printStackTrace();

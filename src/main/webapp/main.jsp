@@ -4,7 +4,8 @@
 <%@page import="javax.sql.*"%>
 <%@page import="javax.naming.*"%>
 <%@page import="java.sql.*"%>
- 
+
+<%request.setCharacterEncoding("UTF-8"); %>
 <%
     String id = null;
     if (session.getAttribute("id") != null) {
@@ -34,7 +35,7 @@
      
      try{
       Context init=new InitialContext();
-      DataSource ds =(DataSource) init.lookup("java:comp/env/jdbc/OracleDB"); //커넥션풀 여기도 등장합니다요
+      DataSource ds =(DataSource) init.lookup("java:comp/env/jdbc/OracleDB"); //커넥션풀 여기도 등장합니다
       conn = ds.getConnection();
       
       pstmt=conn.prepareStatement("select * from member where id=?"); //sql문을 똑같이 적어주면 된다.
@@ -49,21 +50,27 @@
             <tr>
                 <td>아이디:</td><td><%= id %></td>
             </tr>
+            
             <tr>
                 <td>이름:</td><td><%=rs.getString("name")%></td>
             </tr>
+            
             <tr>
                 <td>비밀번호:</td><td><%=rs.getString("password") %></td>
             </tr>
+            
             <tr>
                 <td>나이:</td><td><%=rs.getString("age") %></td>
             </tr>
+            
             <tr>
                 <td>성별:</td><td><%=rs.getString("gender") %></td>
             </tr>
+            
             <tr>
                 <td>이메일:</td><td><%=rs.getString("email") %></td>
             </tr>
+            
         </table>
         
     <%
@@ -73,6 +80,7 @@
         }
     %>
     <br>
+    
     <a href="modifyForm.jsp" align = "center">정보수정</a>    <!-- 정보수정을 원하면 modifyForm.jsp로 이동한다 -->
     
     <%

@@ -1,49 +1,49 @@
 <%@page import="db.CarListBean"%>
 <%@page import="java.util.Vector"%>
 <%@page import="db.RentcarDAO"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <body>
-    <!-- Ä«Å×°í¸® ºÐ·ù°ªÀ» ¹Þ¾Æ¿Í¼­ ¼ÒÇü,ÁßÇü, ´ëÇü¿¡ µû¶ó È­¸é¿¡ Ãâ·ÂÇÔ -->
+    <!-- ì¹´í…Œê³ ë¦¬ ë¶„ë¥˜ê°’ì„ ë°›ì•„ì™€ì„œ ì†Œí˜•,ì¤‘í˜•, ëŒ€í˜•ì— ë”°ë¼ í™”ë©´ì— ì¶œë ¥í•¨ -->
     <%
         int category = Integer.parseInt(request.getParameter("category"));
         String temp = "";
         if (category == 1)
-            temp = "¼ÒÇü";
+            temp = "ì†Œí˜•";
         else if (category == 2)
-            temp = "ÁßÇü";
+            temp = "ì¤‘í˜•";
         else if (category == 3)
-            temp = "´ëÇü";
+            temp = "ëŒ€í˜•";
     %>
     <center>
         <table width="1000">
             <tr height="100">
                 <td align="center" colspan="3"><font size="6" color="gray">
-                        <%=temp%>ÀÚµ¿Â÷
+                        <%=temp%>ìžë™ì°¨
                 </font></td>
             </tr>
             <%
-                //Ä«Å×°í¸® ºÐ·ù°ªÀ» ¹Þ¾Æ¿Â´Ù. (°Ë»öÀÇ ±âÁØÀ¸·Î »ï¾Æ¾ßÇÏ±â ¶§¹®)
-                //CarRserveMainÆäÀÌÁö ¿¡¼­ //select ¿É¼ÇÀ¸·Î ÁØ °ªµéÀ» °¡Á®¿Â´Ù.
-                //¼ÒÇü=1, ÁßÇü=2 µîµîµî
-                //request.getParameter °ªÀº ´Ù string Å¸ÀÔÀÌ±â¶§¹®¿¡ Æ÷ÀåÅ¬·¡½º¸¦ »ç¿ëÇØ Å¸ÀÔº¯È¯À» ÇÑ´Ù.
+                //ì¹´í…Œê³ ë¦¬ ë¶„ë¥˜ê°’ì„ ë°›ì•„ì˜¨ë‹¤. (ê²€ìƒ‰ì˜ ê¸°ì¤€ìœ¼ë¡œ ì‚¼ì•„ì•¼í•˜ê¸° ë•Œë¬¸)
+                //CarRserveMainíŽ˜ì´ì§€ ì—ì„œ //select ì˜µì…˜ìœ¼ë¡œ ì¤€ ê°’ë“¤ì„ ê°€ì ¸ì˜¨ë‹¤.
+                //ì†Œí˜•=1, ì¤‘í˜•=2 ë“±ë“±ë“±
+                //request.getParameter ê°’ì€ ë‹¤ string íƒ€ìž…ì´ê¸°ë•Œë¬¸ì— í¬ìž¥í´ëž˜ìŠ¤ë¥¼ ì‚¬ìš©í•´ íƒ€ìž…ë³€í™˜ì„ í•œë‹¤.
  
                 System.out.println("category");
  
-                //DB¿¬°áÀ» À§ÇØ °´Ã¼¸¦ »ý¼º
+                //DBì—°ê²°ì„ ìœ„í•´ ê°ì²´ë¥¼ ìƒì„±
                 RentcarDAO rdao = new RentcarDAO();
  
-                //°ªÀÌ À¯µ¿ÀûÀÌ±â ¶§¹®¿¡ º¤ÅÍ·Î ¹Þ°í, ÆÄ¶ó¹ÌÅÍ·Î ¹ÞÀº category (ºÐ·ù°ªµé)¸¦ ¸Å°³°ªÀ¸·Î ÁØ´Ù.
+                //ê°’ì´ ìœ ë™ì ì´ê¸° ë•Œë¬¸ì— ë²¡í„°ë¡œ ë°›ê³ , íŒŒë¼ë¯¸í„°ë¡œ ë°›ì€ category (ë¶„ë¥˜ê°’ë“¤)ë¥¼ ë§¤ê°œê°’ìœ¼ë¡œ ì¤€ë‹¤.
                 Vector<CarListBean> v = rdao.getCategoryCar(category);
  
-                //trÀ» 3°³¾¿ º¸¿©ÁÖ°í ´Ù½Ã trÀ» ½ÇÇàÇÒ ¼ö ÀÖµµ·Ï ÇÏ´Â º¯¼ö ¼±¾ð
+                //trì„ 3ê°œì”© ë³´ì—¬ì£¼ê³  ë‹¤ì‹œ trì„ ì‹¤í–‰í•  ìˆ˜ ìžˆë„ë¡ í•˜ëŠ” ë³€ìˆ˜ ì„ ì–¸
                 int j = 0;
                 for (int i = 0; i < v.size(); i++) {
-                    //º¤ÅÍ¿¡ ÀúÀåµÇ¾î ÀÖ´Â ºó Å¬·¡½º¸¦ ÃßÃâ
+                    //ë²¡í„°ì— ì €ìž¥ë˜ì–´ ìžˆëŠ” ë¹ˆ í´ëž˜ìŠ¤ë¥¼ ì¶”ì¶œ
                     CarListBean bean = v.get(i);
-                    //3¹ø¸¶´Ù 0ÀÌ µ¹¾Æ¿Â´Ù´Â ¶æ. Áï 3¹ø¿¡ ÇÑ¹ø ½ÇÇàÇÏµµ·Ï ÇÏ´Â ±¸¹®
+                    //3ë²ˆë§ˆë‹¤ 0ì´ ëŒì•„ì˜¨ë‹¤ëŠ” ëœ». ì¦‰ 3ë²ˆì— í•œë²ˆ ì‹¤í–‰í•˜ë„ë¡ í•˜ëŠ” êµ¬ë¬¸
                     if (j % 3 == 0) {
             %>
             <tr height="220">
@@ -55,13 +55,13 @@
                         <img alt="" src="img/<%=bean.getImg()%>" width="300" height="200">
                 </a>
                     <p>
-                        <font size="3" color="gray"><b>Â÷·®¸í : <%=bean.getName()%>
+                        <font size="3" color="gray"><b>ì°¨ëŸ‰ëª… : <%=bean.getName()%>
                         </b> </font></td>
  
  
  
                 <%
-                    j = j + 1; //j°ªÀ» Áõ°¡ÇÏ¿© ÇÏ³ªÀÇ Çà¿¡ ÃÑ3°³ÀÇ Â÷·®Á¤º¸¸¦ º¸¿©ÁÖ±â À§ÇØ¼­ Áõ°¡
+                    j = j + 1; //jê°’ì„ ì¦ê°€í•˜ì—¬ í•˜ë‚˜ì˜ í–‰ì— ì´3ê°œì˜ ì°¨ëŸ‰ì •ë³´ë¥¼ ë³´ì—¬ì£¼ê¸° ìœ„í•´ì„œ ì¦ê°€
                     }
                 %>
             

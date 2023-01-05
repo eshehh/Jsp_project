@@ -2,8 +2,8 @@
 <%@page import="db.RentcarDAO"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Date"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,82 +11,82 @@
 <title>Insert title here</title>
 </head>
 <body>
-    <!-- ÇÑ±ÛÀÌ ³Ñ¾î¿Ã¼öµµ ÀÖ±â ¶§¹®¿¡ ¹®ÀÚ¼Â¼³Á¤À» ´Ù½ÃÇÑ´Ù. -->
+    <!-- í•œê¸€ì´ ë„˜ì–´ì˜¬ìˆ˜ë„ ìžˆê¸° ë•Œë¬¸ì— ë¬¸ìžì…‹ì„¤ì •ì„ ë‹¤ì‹œí•œë‹¤. -->
  
     <%
         request.setCharacterEncoding("euc-kr");
     %>
-    <!-- ÇÑ¹ø¿¡ ºóÅ¬·¡½º¿¡ ÀÖ´Â °ªµéÀ» ¹Þ¾Æ¾ßµÇ¼­ useBean »ç¿ë -->
+    <!-- í•œë²ˆì— ë¹ˆí´ëž˜ìŠ¤ì— ìžˆëŠ” ê°’ë“¤ì„ ë°›ì•„ì•¼ë˜ì„œ useBean ì‚¬ìš© -->
     <jsp:useBean id="rbean" class="db.CarReserveBean">
         <jsp:setProperty name="rbean" property="*" />
     </jsp:useBean>
  
     <%
-        //·Î±×ÀÎÇÑ ¾ÆÀÌµð°¡ ÆäÀÌÁö°¡ º¯°æµÇ¾îµµ À¯Áö°¡ µÇ¾î¾ßÇÏ±â ¶§¹®¿¡ ¼¼¼ÇÀ¸·Î ¹Þ´Â´Ù.
-        //¹Þ´Â ¾ÆÀÌµð´Â ¿ÀºêÁ§Æ® Å¸ÀÔÀÌ±â ¶§¹®¿¡ String Å¸ÀÔÀ¸·Î Å¸ÀÔº¯È¯À» ½ÃÄÑÁØ´Ù.
+        //ë¡œê·¸ì¸í•œ ì•„ì´ë””ê°€ íŽ˜ì´ì§€ê°€ ë³€ê²½ë˜ì–´ë„ ìœ ì§€ê°€ ë˜ì–´ì•¼í•˜ê¸° ë•Œë¬¸ì— ì„¸ì…˜ìœ¼ë¡œ ë°›ëŠ”ë‹¤.
+        //ë°›ëŠ” ì•„ì´ë””ëŠ” ì˜¤ë¸Œì íŠ¸ íƒ€ìž…ì´ê¸° ë•Œë¬¸ì— String íƒ€ìž…ìœ¼ë¡œ íƒ€ìž…ë³€í™˜ì„ ì‹œì¼œì¤€ë‹¤.
         String id = (String) session.getAttribute("id");
  
-        //null°ª°ú ºñ±³ÇÒ½Ã¿¡´Â GUEST°ªÀÌ ³ª¿Í¹ö¸®¹Ç·Î 
-        //null ´ë½Å¿¡ GUEST¿Í ºñ±³ÇÑ´Ù.
-        //ºñ±³ÇÑÈÄ¿¡ ÂüÀÌ¸é (·Î±×ÀÎÀÌ ¾ÈµÇ¾úÀ¸¸é) ·Î±×ÀÎÆäÀÌÁö·Î ÀÌµ¿ÇÏ°ÔÇÔ
+        //nullê°’ê³¼ ë¹„êµí• ì‹œì—ëŠ” GUESTê°’ì´ ë‚˜ì™€ë²„ë¦¬ë¯€ë¡œ 
+        //null ëŒ€ì‹ ì— GUESTì™€ ë¹„êµí•œë‹¤.
+        //ë¹„êµí•œí›„ì— ì°¸ì´ë©´ (ë¡œê·¸ì¸ì´ ì•ˆë˜ì—ˆìœ¼ë©´) ë¡œê·¸ì¸íŽ˜ì´ì§€ë¡œ ì´ë™í•˜ê²Œí•¨
         if (id == null) {
     %>
  
     <script>
-        //¿¹¾àÇÒ½Ã¿¡ ·Î±×ÀÎÀÌ ¾ÈµÇ¾îÀÖÀ»°æ¿ì Ãâ·ÂµÇ´Â ¸Þ½ÃÁö
-        alert("·Î±×ÀÎÈÄ ¿¹¾àÀÌ °¡´ÉÇÕ´Ï´Ù.");
-        //·Î±×ÀÎÀÌ ¾ÈµÇ¾îÀÖÀ»°æ¿ì ·Î±×ÀÎ ÆäÀÌÁö·Î ÀÌµ¿
+        //ì˜ˆì•½í• ì‹œì— ë¡œê·¸ì¸ì´ ì•ˆë˜ì–´ìžˆì„ê²½ìš° ì¶œë ¥ë˜ëŠ” ë©”ì‹œì§€
+        alert("ë¡œê·¸ì¸í›„ ì˜ˆì•½ì´ ê°€ëŠ¥í•©ë‹ˆë‹¤.");
+        //ë¡œê·¸ì¸ì´ ì•ˆë˜ì–´ìžˆì„ê²½ìš° ë¡œê·¸ì¸ íŽ˜ì´ì§€ë¡œ ì´ë™
         location.href = 'RentcarMain.jsp?center=MemberLogin.jsp';
     </script>
  
     <%
         }
-        //³¯Â¥ ºñ±³ (ÇöÀç ³¯Â¥º¸´Ù ¾Õ¿¡ ³¯Â¥´Â ¼±ÅÃ ¸øÇÏ°Ô ÇÏ±â.. )
+        //ë‚ ì§œ ë¹„êµ (í˜„ìž¬ ë‚ ì§œë³´ë‹¤ ì•žì— ë‚ ì§œëŠ” ì„ íƒ ëª»í•˜ê²Œ í•˜ê¸°.. )
         Date d1 = new Date();
         Date d2 = new Date();
-        //³¯Â¥¸¦ 2016-4-4 ·Î Æ÷¸ËÇØÁÖ´Â Å¬·¡½º ¼±¾ð, monthÀº ´ë¹®ÀÚ MÀ» »ç¿ë
+        
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
  
-        //d1Àº yyyy-MM-dd Çü½ÄÀ¸·Î º¯°æµÈ´Ù.
+        //d1ì€ yyyy-MM-dd í˜•ì‹ìœ¼ë¡œ ë³€ê²½ëœë‹¤.
         d1 = sdf.parse(rbean.getRday());
-        //d2´Â yyyy-MM-dd Çü½ÄÀ¸·Î º¯°æµÈ´Ù.
+        //d2ëŠ” yyyy-MM-dd í˜•ì‹ìœ¼ë¡œ ë³€ê²½ëœë‹¤.
         d2 = sdf.parse(sdf.format(d2));
  
-        //³¯Â¥ ºñ±³ ¸Þ¼Òµå¸¦ »ç¿ë°¡´É date Å¬·¡½º »ç¿ë
+        //ë‚ ì§œ ë¹„êµ ë©”ì†Œë“œë¥¼ ì‚¬ìš©ê°€ëŠ¥ date í´ëž˜ìŠ¤ ì‚¬ìš©
  
         int compare = d1.compareTo(d2);
-        //¿¹¾àÇÏ·Á´Â ³¯Â¥º¸´Ù ÇöÀç ³¯Â¥°¡ Å©´Ù¸é -1À» ¹ÝÈ¯
-        //¿¹¾àÇÏ·Á´Â ³¯Â¥¿Í ÇöÀç ³¯Â¥°¡ °°´Ù¸é 0À» ¹ÝÈ¯
-        //¿¹¾àÇÏ·Á´Â ³¯Â¥°¡ ´õ Å©´Ù¸é 1À» ¸®ÅÏÇÔ
+        //ì˜ˆì•½í•˜ë ¤ëŠ” ë‚ ì§œë³´ë‹¤ í˜„ìž¬ ë‚ ì§œê°€ í¬ë‹¤ë©´ -1ì„ ë°˜í™˜
+        //ì˜ˆì•½í•˜ë ¤ëŠ” ë‚ ì§œì™€ í˜„ìž¬ ë‚ ì§œê°€ ê°™ë‹¤ë©´ 0ì„ ë°˜í™˜
+        //ì˜ˆì•½í•˜ë ¤ëŠ” ë‚ ì§œê°€ ë” í¬ë‹¤ë©´ 1ì„ ë¦¬í„´í•¨
  
         if (compare < 0) {
-            //¿À´Ãº¸´Ù ÀÌÀü ³¯Â¥ ¼±ÅÃ½Ã ¿¹¾àÀÌ ¾ÈµÇ°Ô²û ÇØ¾ßÇÔ
+            //ì˜¤ëŠ˜ë³´ë‹¤ ì´ì „ ë‚ ì§œ ì„ íƒì‹œ ì˜ˆì•½ì´ ì•ˆë˜ê²Œë” í•´ì•¼í•¨
     %>
  
     <script>
-        alert("ÇöÀç ½Ã½ºÅÛ ³¯Â¥º¸´Ù ÀÌÀü ³¯Â¥´Â ¼±ÅÃÇÒ ¼ö ¾øÀ½");
-        history.go(-1);//ÀÌÀü ´Ü°è·Î ÀÌµ¿ÇÏ½Ã¿À.
+        alert("í˜„ìž¬ ì‹œìŠ¤í…œ ë‚ ì§œë³´ë‹¤ ì´ì „ ë‚ ì§œëŠ” ì„ íƒí•  ìˆ˜ ì—†ìŒ");
+        history.go(-1);//ì´ì „ ë‹¨ê³„ë¡œ ì´ë™í•˜ì‹œì˜¤.
     </script>
  
     <%
         }
  
-        //°á°úÀûÀ¸·Î ¾Æ¹«·± ¹®Á¦°¡ ¾ø´Ù¸é µ¥ÀÌÅÍ ÀúÀåÈÄ °á°ú ÆäÀÌÁö·Î ÀÌµ¿ÇÏ±â
-        //¾ÆÀÌµð°ªÀÌ ºó Å¬·¡½º¿¡ ¾ø°í, ¼¼¼Ç¿¡ ÀúÀå½ÃÄ×±â ¶§¹®
-        //id´Â null°ªÀÌ µé¾î°¥¼ö ÀÖÀ¸¹Ç·Î º¯¼öÀÌ¸§À» id1 À¸·Î ÇÑ´Ù.
+        //ê²°ê³¼ì ìœ¼ë¡œ ì•„ë¬´ëŸ° ë¬¸ì œê°€ ì—†ë‹¤ë©´ ë°ì´í„° ì €ìž¥í›„ ê²°ê³¼ íŽ˜ì´ì§€ë¡œ ì´ë™í•˜ê¸°
+        //ì•„ì´ë””ê°’ì´ ë¹ˆ í´ëž˜ìŠ¤ì— ì—†ê³ , ì„¸ì…˜ì— ì €ìž¥ì‹œì¼°ê¸° ë•Œë¬¸
+        //idëŠ” nullê°’ì´ ë“¤ì–´ê°ˆìˆ˜ ìžˆìœ¼ë¯€ë¡œ ë³€ìˆ˜ì´ë¦„ì„ id1 ìœ¼ë¡œ í•œë‹¤.
         String id1 = (String) session.getAttribute("id");
         rbean.setId(id1);
  
-        //µ¥ÀÌÅÍº£ÀÌ½º¿¡ ºóÅ¬·¡½º¸¦ ÀúÀåÇÔ
+        //ë°ì´í„°ë² ì´ìŠ¤ì— ë¹ˆí´ëž˜ìŠ¤ë¥¼ ì €ìž¥í•¨
         RentcarDAO rdao = new RentcarDAO();
         rdao.setReserveCar(rbean);
  
-        //Â÷·®Á¤º¸ ¾ò¾î¿À±â CarReserveBean¿¡´Â Â÷·® »çÁøÀÌ ÀúÀåµÇ¾î ÀÖÁö ¾Ê±â¶§¹®¿¡ ´Ù¸¥°÷¿¡¼­ ¾ò¾î¿Í¾ß ÇÑ´Ù.
+        //ì°¨ëŸ‰ì •ë³´ ì–»ì–´ì˜¤ê¸° CarReserveBeanì—ëŠ” ì°¨ëŸ‰ ì‚¬ì§„ì´ ì €ìž¥ë˜ì–´ ìžˆì§€ ì•Šê¸°ë•Œë¬¸ì— ë‹¤ë¥¸ê³³ì—ì„œ ì–»ì–´ì™€ì•¼ í•œë‹¤.
         CarListBean cbean = rdao.getOneCar(rbean.getNo());
  
-        //Â÷·® ÃÑ ±Ý¾×, ±Ý¾× * Â÷·® ´ë¼ö * ºô¸®´Â ³¯Â¥
+        //ì°¨ëŸ‰ ì´ ê¸ˆì•¡, ê¸ˆì•¡ * ì°¨ëŸ‰ ëŒ€ìˆ˜ * ë¹Œë¦¬ëŠ” ë‚ ì§œ
         int totalcar = cbean.getPrice() * rbean.getQty() * rbean.getDday();
-        //¿É¼Ç ±Ý¾×
+        //ì˜µì…˜ ê¸ˆì•¡
         int usein = 0;
         if (rbean.getUsein() == 1)
             usein = 10000;
@@ -99,14 +99,14 @@
         if (rbean.getUseseat() == 1)
             useseat = 10000;
  
-        //¿É¼ÇÀÇ ÃÑ±Ý¾× (º¸Çè µîµîµî)
+        //ì˜µì…˜ì˜ ì´ê¸ˆì•¡ (ë³´í—˜ ë“±ë“±ë“±)
         int totaloption = (rbean.getQty() * rbean.getDday()) * (usein + usewifi + useseat);
     %>
     <center>
         <table width="1000">
             <tr height="100">
-                <td align="center"><font size="6" color="gray"> Â÷·® ¿¹¾à ¿Ï·á
-                        È­¸é </font></td>
+                <td align="center"><font size="6" color="gray"> ì°¨ëŸ‰ ì˜ˆì•½ ì™„ë£Œ
+                        í™”ë©´ </font></td>
             </tr>
  
             <tr>
@@ -115,19 +115,19 @@
             </tr>
  
             <tr height="50">
-                <td align="center"><font size="5" color="red"> Â÷·® ÃÑ¿¹¾à ±Ý¾×
-                        <%=totalcar%>¿ø
+                <td align="center"><font size="5" color="red"> ì°¨ëŸ‰ ì´ì˜ˆì•½ ê¸ˆì•¡
+                        <%=totalcar%>ì›
                 </font></td>
             </tr>
  
             <tr height="50">
-                <td align="center"><font size="5" color="red"> Â÷·® ÃÑ¿É¼Ç ±Ý¾×
-                        <%=totaloption%>¿ø
+                <td align="center"><font size="5" color="red"> ì°¨ëŸ‰ ì´ì˜µì…˜ ê¸ˆì•¡
+                        <%=totaloption%>ì›
                 </font></td>
             </tr>
  
             <tr height="50">
-                <td align="center"><font size="5" color="red"> Â÷·® ÃÑ ±Ý¾× <%=totaloption + totalcar%>¿ø
+                <td align="center"><font size="5" color="red"> ì°¨ëŸ‰ ì´ ê¸ˆì•¡ <%=totaloption + totalcar%>ì›
                 </font></td>
             </tr>
  

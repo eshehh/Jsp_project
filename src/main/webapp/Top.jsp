@@ -1,16 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <body>
  
-    <!-- ¼¼¼ÇÀ» ÀÌ¿ëÇÑ ·Î±×ÀÎ Ã³¸® -->
-    <!-- ¼¼¼ÇÀ¸·Î ¹Þ¾Æ¿Â °ªÀº ¿ÀºêÁ§Æ® Å¸ÀÔÀÌ±â ¶§¹®¿¡ String Å¸ÀÔÀ¸·Î ÄÁ¹öÆÃ ÇÑ´Ù. -->
+    <!-- ì„¸ì…˜ì„ ì´ìš©í•œ ë¡œê·¸ì¸ ì²˜ë¦¬ -->
+    <!-- ì„¸ì…˜ìœ¼ë¡œ ë°›ì•„ì˜¨ ê°’ì€ ì˜¤ë¸Œì íŠ¸ íƒ€ìž…ì´ê¸° ë•Œë¬¸ì— String íƒ€ìž…ìœ¼ë¡œ ì»¨ë²„íŒ… í•œë‹¤. -->
  
     <%
         String id = (String) session.getAttribute("id");
  
-        //·Î±×ÀÎÀÌ µÇ¾îÀÖÁö ¾Ê´Ù¸é id¿¡ "GUEST"°ªÀ» ÁØ´Ù
+        //ë¡œê·¸ì¸ì´ ë˜ì–´ìžˆì§€ ì•Šë‹¤ë©´ idì— "GUEST"ê°’ì„ ì¤€ë‹¤
         if (id == null) {
             id = "GUEST";
         }
@@ -19,44 +19,44 @@
     <table width="1000" bordercolor="white">
         <tr height="70">
             <td colspan="4"><a href="RentcarMain.jsp"
-                style="text-decoration: none"> <!-- ÀÌ¹ÌÁö¸¦ ºÒ·¯¿À±âÀ§ÇÑ ÅÂ±× ÀÛ¼º --> <img
+                style="text-decoration: none"> <!-- ì´ë¯¸ì§€ë¥¼ ë¶ˆëŸ¬ì˜¤ê¸°ìœ„í•œ íƒœê·¸ ìž‘ì„± --> <img
                     alt="" src="img/RENT.png" height="150" width="250">
             </a></td>
-            <td align="center" width="200"><%=id%> ´Ô <%
+            <td align="center" width="200"><%=id%> ë‹˜ <%
                 if(id.equals("GUEST")){ %>
                 <button
                     onclick="location.href='RentcarMain.jsp?center=MemberLogin.jsp'">
-                    ·Î±×ÀÎ</button> <%
+                    ë¡œê·¸ì¸</button> <%
                 }else{%>
-                <button onclick="location.href='RentcarMain.jsp?center=logout.jsp'">·Î±×¾Æ¿ô</button> <% 
+                <button onclick="location.href='RentcarMain.jsp?center=logout.jsp'">ë¡œê·¸ì•„ì›ƒ</button> <% 
                 }
             %></td>
         </tr>
-        <!-- ±ÛÀÚ¸¦ ´©¸£¸é È­¸éÀÌ ³Ñ¾î°¥¼ö ÀÖµµ·Ï aÅÂ±×¸¦ °É¾îÁÜ -->
+        <!-- ê¸€ìžë¥¼ ëˆ„ë¥´ë©´ í™”ë©´ì´ ë„˜ì–´ê°ˆìˆ˜ ìžˆë„ë¡ aíƒœê·¸ë¥¼ ê±¸ì–´ì¤Œ -->
         <tr height="50">
             <td align="center" width="200" bgcolor="pink"><font
                 color="white" size="5"> <a
                     href="RentcarMain.jsp?center=CarReserveMain.jsp"
-                    style="text-decoration: none"> ¿¹ ¾à ÇÏ ±â </a></font></td>
+                    style="text-decoration: none"> ì˜ˆ ì•½ í•˜ ê¸° </a></font></td>
  
             <td align="center" width="200" bgcolor="pink">
-                <!-- ±ÛÀÚ¸¦ ´©¸£¸é È­¸éÀÌ ³Ñ¾î°¥¼ö ÀÖµµ·Ï aÅÂ±×¸¦ °É¾îÁÜ --> <font color="white" size="5"><a
-                    href="RentcarMain.jsp?center=CarReserveView.jsp" style="text-decoration: none"> ¿¹ ¾à È® ÀÎ</a></font>
+                <!-- ê¸€ìžë¥¼ ëˆ„ë¥´ë©´ í™”ë©´ì´ ë„˜ì–´ê°ˆìˆ˜ ìžˆë„ë¡ aíƒœê·¸ë¥¼ ê±¸ì–´ì¤Œ --> <font color="white" size="5"><a
+                    href="RentcarMain.jsp?center=CarReserveView.jsp" style="text-decoration: none"> ì˜ˆ ì•½ í™• ì¸</a></font>
             </td>
  
             <td align="center" width="200" bgcolor="pink">
-                <!-- ±ÛÀÚ¸¦ ´©¸£¸é È­¸éÀÌ ³Ñ¾î°¥¼ö ÀÖµµ·Ï aÅÂ±×¸¦ °É¾îÁÜ --> <font color="white" size="5"><a
-                    href="#" style="text-decoration: none"> ÀÚ À¯ °Ô ½Ã ÆÇ </a></font>
+                <!-- ê¸€ìžë¥¼ ëˆ„ë¥´ë©´ í™”ë©´ì´ ë„˜ì–´ê°ˆìˆ˜ ìžˆë„ë¡ aíƒœê·¸ë¥¼ ê±¸ì–´ì¤Œ --> <font color="white" size="5"><a
+                    href="#" style="text-decoration: none"> ìž ìœ  ê²Œ ì‹œ íŒ </a></font>
             </td>
  
             <td align="center" width="200" bgcolor="pink">
-                <!-- ±ÛÀÚ¸¦ ´©¸£¸é È­¸éÀÌ ³Ñ¾î°¥¼ö ÀÖµµ·Ï aÅÂ±×¸¦ °É¾îÁÜ --> <font color="white" size="5"><a
-                    href="#" style="text-decoration: none"> ÀÌ º¥ Æ® </a></font>
+                <!-- ê¸€ìžë¥¼ ëˆ„ë¥´ë©´ í™”ë©´ì´ ë„˜ì–´ê°ˆìˆ˜ ìžˆë„ë¡ aíƒœê·¸ë¥¼ ê±¸ì–´ì¤Œ --> <font color="white" size="5"><a
+                    href="void(0);" onclick="alert('ì¤€ë¹„ ì¤‘ ìž…ë‹ˆë‹¤.');return false;" style="text-decoration: none"> ì´ ë²¤ íŠ¸ </a></font>
             </td>
  
             <td align="center" width="200" bgcolor="pink">
-                <!-- ±ÛÀÚ¸¦ ´©¸£¸é È­¸éÀÌ ³Ñ¾î°¥¼ö ÀÖµµ·Ï aÅÂ±×¸¦ °É¾îÁÜ --> <font color="white" size="5"><a
-                    href="#" style="text-decoration: none"> °í °´ ¼¾ ÅÍ </a></font>
+                <!-- ê¸€ìžë¥¼ ëˆ„ë¥´ë©´ í™”ë©´ì´ ë„˜ì–´ê°ˆìˆ˜ ìžˆë„ë¡ aíƒœê·¸ë¥¼ ê±¸ì–´ì¤Œ --> <font color="white" size="5"><a
+                    href="#" style="text-decoration: none"> ê³  ê° ì„¼ í„° </a></font>
             </td>
         </tr>
  

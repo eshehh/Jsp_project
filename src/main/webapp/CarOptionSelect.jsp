@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
     <%@page import="db.CarListBean"%>
     <%@page import="db.RentcarDAO"%>
 <html>
@@ -8,9 +8,9 @@
     <% 
     int no = Integer.parseInt(request.getParameter("no"));
     
-    //Â÷·® ¼ö·®
+    //ì°¨ëŸ‰ ìˆ˜ëŸ‰
     int qty = Integer.parseInt(request.getParameter("qty"));
-    //ÀÌ¹ÌÁö¸¦ °¡Á®¿È
+    //ì´ë¯¸ì§€ë¥¼ ê°€ì ¸ì˜´
     /* String img = request.getParameter("img"); */
     RentcarDAO rdao = new RentcarDAO();
     CarListBean bean = rdao.getOneCar(no);
@@ -22,65 +22,65 @@
             <table width="1000">
                 <tr height="100">
                     <td align="center" colspan="3"><font size="6" color="gray">
-                            ¿É¼Ç ¼±ÅÃ </font></td>
+                            ì˜µì…˜ ì„ íƒ </font></td>
                 </tr>
                 <tr>
-                    <!-- colspanÀº °¡·Î¼¿³¢¸® º´ÇÕÇÏ´Â °ÍÀÌ°í, rowspanÀº ¼¼·Î ¼¿³¢¸® º´ÇÕÇÏ´Â °Í -->
-                    <!-- Â÷·® »çÁø ¿·¿¡ Á¤º¸µéÀÌ ¶°¾ßÇÏ±â¶§¹®¿¡ ¼¼·Îº´ÇÕÀÎ rowspanÀ» »ç¿ë -->
+                    <!-- colspanì€ ê°€ë¡œì…€ë¼ë¦¬ ë³‘í•©í•˜ëŠ” ê²ƒì´ê³ , rowspanì€ ì„¸ë¡œ ì…€ë¼ë¦¬ ë³‘í•©í•˜ëŠ” ê²ƒ -->
+                    <!-- ì°¨ëŸ‰ ì‚¬ì§„ ì˜†ì— ì •ë³´ë“¤ì´ ë– ì•¼í•˜ê¸°ë•Œë¬¸ì— ì„¸ë¡œë³‘í•©ì¸ rowspanì„ ì‚¬ìš© -->
                     <td rowspan="7" width="500" align="center"><img alt=""
                         src="img/<%=bean.getImg()%>" width="450"></td>
-                    <td width="250" align="center">´ë¿©±â°£</td>
+                    <td width="250" align="center">ëŒ€ì—¬ê¸°ê°„</td>
                     <td width="250" align="center"><select name="dday">
-                            <option value="1">1ÀÏ</option>
-                            <option value="2">2ÀÏ</option>
-                            <option value="3">3ÀÏ</option>
-                            <option value="4">4ÀÏ</option>
-                            <option value="5">5ÀÏ</option>
-                            <option value="6">6ÀÏ</option>
-                            <option value="7">7ÀÏ</option>
+                            <option value="1">1ì¼</option>
+                            <option value="2">2ì¼</option>
+                            <option value="3">3ì¼</option>
+                            <option value="4">4ì¼</option>
+                            <option value="5">5ì¼</option>
+                            <option value="6">6ì¼</option>
+                            <option value="7">7ì¼</option>
                     </select></td>
                 </tr>
                 <tr>
-                    <td width="250" align="center">´ë¿©ÀÏ</td>
+                    <td width="250" align="center">ëŒ€ì—¬ì¼</td>
                     <td width="250" align="center"><input type="date" name="rday"
                         size="15"></td>
                 <tr>
-                    <td width="250" align="center">º¸ÇèÀû¿ë</td>
+                    <td width="250" align="center">ë³´í—˜ì ìš©</td>
                     <td width="250" align="center"><select name="usein">
-                            <option value="1">Àû¿ë (1ÀÏ 1¸¸¿ø)</option>
-                            <option value="2">¹ÌÀû¿ë</option>
+                            <option value="1">ì ìš© (1ì¼ 1ë§Œì›)</option>
+                            <option value="2">ë¯¸ì ìš©</option>
                     </select></td>
                 </tr>
  
                 <tr>
-                    <td width="250" align="center">wifi Àû¿ë</td>
+                    <td width="250" align="center">wifi ì ìš©</td>
                     <td width="250" align="center"><select name="usewifi">
-                            <option value="1">Àû¿ë (1ÀÏ 1¸¸¿ø)</option>
-                            <option value="2">¹ÌÀû¿ë</option>
+                            <option value="1">ì ìš© (1ì¼ 1ë§Œì›)</option>
+                            <option value="2">ë¯¸ì ìš©</option>
                     </select></td>
                 </tr>
  
                 <tr>
-                    <td width="250" align="center">³×ºñ°ÔÀÌ¼Ç Àû¿ë</td>
+                    <td width="250" align="center">ë„¤ë¹„ê²Œì´ì…˜ ì ìš©</td>
                     <td width="250" align="center"><select name="usenavi">
-                            <option value="1">Àû¿ë (¹«·á)</option>
-                            <option value="2">¹ÌÀû¿ë</option>
+                            <option value="1">ì ìš© (ë¬´ë£Œ)</option>
+                            <option value="2">ë¯¸ì ìš©</option>
                     </select></td>
                 </tr>
  
  
                 <tr>
-                    <td width="250" align="center">º£ÀÌºñ½ÃÆ® Àû¿ë</td>
+                    <td width="250" align="center">ë² ì´ë¹„ì‹œíŠ¸ ì ìš©</td>
                     <td width="250" align="center"><select name="useseat">
-                            <option value="1">Àû¿ë (1ÀÏ 1¸¸¿ø)</option>
-                            <option value="2">¹ÌÀû¿ë</option>
+                            <option value="1">ì ìš© (1ì¼ 1ë§Œì›)</option>
+                            <option value="2">ë¯¸ì ìš©</option>
                     </select></td>
                 </tr>
  
                 <tr>
                     <td align="center" colspan="2"><input type="hidden" name="no"
                         value="<%=no %>"> <input type="hidden" name="qty"
-                        value="<%=qty %>"> <input type="submit" value="Â÷·®¿¹¾àÇÏ±â"></td>
+                        value="<%=qty %>"> <input type="submit" value="ì°¨ëŸ‰ì˜ˆì•½í•˜ê¸°"></td>
                 </tr>
  
             </table>

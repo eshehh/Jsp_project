@@ -1,21 +1,21 @@
 <%@page import="db.RentcarDAO"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <body>
  
 <% 
-    //Â÷·® ¿¹¾àÀ» »èÁ¦ÇÏ´Â ÆäÀÌÁö
-    //Äõ¸®¹®À» »ç¿ëÇÏ±âÀ§ÇÑ pk(±âº»Å° °ªÀ¸·Î »ç¿ëÇÏ±â À§ÇØ) id¿Í ´ë¿©ÀÏÀ» ÆÄ¶ó¹ÌÅÍ·Î ¹Þ´Â´Ù.
-    String id = request.getParameter("id");
-    String rday = request.getParameter("rday");
-    System.out.println("Ã¹¹øÂ°"+id);
+    //ì°¨ëŸ‰ ì˜ˆì•½ì„ ì‚­ì œí•˜ëŠ” íŽ˜ì´ì§€
+    //ì¿¼ë¦¬ë¬¸ì„ ì‚¬ìš©í•˜ê¸°ìœ„í•œ pk(ê¸°ë³¸í‚¤ ê°’ìœ¼ë¡œ ì‚¬ìš©í•˜ê¸° ìœ„í•´) idì™€ ëŒ€ì—¬ì¼ì„ íŒŒë¼ë¯¸í„°ë¡œ ë°›ëŠ”ë‹¤.
+    String id = request.getParameter("ID");
+    String rday = request.getParameter("RDAY");
+    System.out.println("ì²«ë²ˆì§¸"+ id);
     
      RentcarDAO rdao = new RentcarDAO();
-    //¿¹¾à»èÁ¦ ¸Þ¼Òµå È£Ãâ
+    //ì˜ˆì•½ì‚­ì œ ë©”ì†Œë“œ í˜¸ì¶œ
     rdao.carRemoveReserve(id,rday);
-    System.out.println("µÎ¹øÂ°"+id);
+    System.out.println("ë‘ë²ˆì§¸"+id);
     response.sendRedirect("RentcarMain.jsp"); 
 %>
  

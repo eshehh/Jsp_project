@@ -1,36 +1,36 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <body>
  
     <%
         String center = request.getParameter("center");
-        //Ã³À½ ½ÇÇà½Ã¿¡´Â center °ªÀÌ ³Ñ¾î¿ÀÁö ¾Ê±â¿¡ ¹Ýµå½Ã  nullÃ³¸®¸¦ ÇØ¾ßÇÑ´Ù.
-        //Ã³¸®¸¦ ÇÏÁö¾ÊÀ¸¸é ¿¡·¯°¡ ¹ß»ýµÉ¼ö ÀÖ´Ù.
+        //ì²˜ìŒ ì‹¤í–‰ì‹œì—ëŠ” center ê°’ì´ ë„˜ì–´ì˜¤ì§€ ì•Šê¸°ì— ë°˜ë“œì‹œ  nullì²˜ë¦¬ë¥¼ í•´ì•¼í•œë‹¤.
+        //ì²˜ë¦¬ë¥¼ í•˜ì§€ì•Šìœ¼ë©´ ì—ëŸ¬ê°€ ë°œìƒë ìˆ˜ ìžˆë‹¤.
  
         if (center == null) {
-            center = "Center.jsp"; //µðÆúÆ® center°ªÀ» ºÎ¿©(Ã¹ È­¸é¿¡´Â centerÀÌ ¶ßµµ·Ï ÇÑ´Ù´Â ¸»)    
+            center = "Center.jsp"; //ë””í´íŠ¸ centerê°’ì„ ë¶€ì—¬(ì²« í™”ë©´ì—ëŠ” centerì´ ëœ¨ë„ë¡ í•œë‹¤ëŠ” ë§)    
         }
     %>
     <center>
         <table width="1000">
  
-            <!-- Top ºÎºÐ -->
+            <!-- Top ë¶€ë¶„ -->
             <tr height="140" align="center">
-                <!-- include page¸¦ »ç¿ëÇÏ¿©¼­ mainÆäÀÌÁö¿¡¼­ °¢ ÆäÀÌÁö°¡ È£ÃâµÉ¼ö ÀÖµµ·Ï ÇÑ´Ù. -->
+                <!-- include pageë¥¼ ì‚¬ìš©í•˜ì—¬ì„œ mainíŽ˜ì´ì§€ì—ì„œ ê° íŽ˜ì´ì§€ê°€ í˜¸ì¶œë ìˆ˜ ìžˆë„ë¡ í•œë‹¤. -->
                 <td align="center" width="1000"><jsp:include page="Top.jsp" /></td>
             </tr>
  
-            <!-- Center ºÎºÐ -->
-            <!-- Top¶û,BottomÀº È­¸éÀÌ ³Ñ¾î°¡´õ¶óµµ ¹Ù²îÁö ¾ÊÁö¸¸ centerÀº °è¼Ó ¹Ù²î±â ¶§¹®¿¡ center°ªÀ» ÁØ´Ù -->
+            <!-- Center ë¶€ë¶„ -->
+            <!-- Topëž‘,Bottomì€ í™”ë©´ì´ ë„˜ì–´ê°€ë”ë¼ë„ ë°”ë€Œì§€ ì•Šì§€ë§Œ centerì€ ê³„ì† ë°”ë€Œê¸° ë•Œë¬¸ì— centerê°’ì„ ì¤€ë‹¤ -->
  
             <tr height="100" align="center">
                 <td align="center" width="1000"><jsp:include
                         page="<%=center%>" /></td>
             </tr>
  
-            <!-- Bottom ºÎºÐ -->
+            <!-- Bottom ë¶€ë¶„ -->
             <tr height="140" align="center">
                 <td align="center" width="1000"><jsp:include page="Bottom.jsp" /></td>
             </tr>

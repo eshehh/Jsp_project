@@ -1,43 +1,43 @@
 <%@page import="db.CarListBean"%>
 <%@page import="java.util.Vector"%>
 <%@page import="db.RentcarDAO"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <body>
     <center>
  
-        <!-- µ¥ÀÌÅÍº£ÀÌ½º¿¡ ¿¬°áÇÏ¿© ÃÖ½Å¼ø ÀÚµ¿Â÷ 3´ë¸¸ »Ñ·ÁÁÖ´Â µ¥ÀÌÅÍ¸¦ °¡Á®¿È -->
+        <!-- ë°ì´í„°ë² ì´ìŠ¤ì— ì—°ê²°í•˜ì—¬ ìµœì‹ ìˆœ ìžë™ì°¨ 3ëŒ€ë§Œ ë¿Œë ¤ì£¼ëŠ” ë°ì´í„°ë¥¼ ê°€ì ¸ì˜´ -->
  
         <%
             RentcarDAO rdao = new RentcarDAO();
-            //º¤ÅÍ¸¦ ÀÌ¿ëÇÏ¿© ÀÚµ¿Â÷µ¥ÀÌÅÍ¸¦ ÀúÀåÇÔ
+            //ë²¡í„°ë¥¼ ì´ìš©í•˜ì—¬ ìžë™ì°¨ë°ì´í„°ë¥¼ ì €ìž¥í•¨
             Vector<CarListBean> v = rdao.getSelectCar();
         %>
  
         <table width="1000">
             <tr height="100">
-                <td align="center" colspan="3"><font size="6" color="gray">ÃÖ½ÅÇü
-                        ÀÚµ¿Â÷</font></td>
+                <td align="center" colspan="3"><font size="6" color="gray">ìµœì‹ í˜•
+                        ìžë™ì°¨</font></td>
             </tr>
  
  
             <tr height="240">
-                <!-- º¤ÅÍ¿¡ ÀúÀåµÈ ÀÌ¹ÌÁö¸¦ ÇÏ³ª¾¿ Ãâ·ÂÇØ¾ßÇÏ±â ¶§¹®¿¡ for¹®À» µ¹¸®°í, ±× °ªµéÀ» ºóÅ¬·¡½º º¯¼ö¿¡ ³Ö¾îÁØ´Ù. -->
+                <!-- ë²¡í„°ì— ì €ìž¥ëœ ì´ë¯¸ì§€ë¥¼ í•˜ë‚˜ì”© ì¶œë ¥í•´ì•¼í•˜ê¸° ë•Œë¬¸ì— forë¬¸ì„ ëŒë¦¬ê³ , ê·¸ ê°’ë“¤ì„ ë¹ˆí´ëž˜ìŠ¤ ë³€ìˆ˜ì— ë„£ì–´ì¤€ë‹¤. -->
                 <%
                     for (int i = 1; i < v.size(); i++) {
                         CarListBean bean = v.get(i);
                 %>
                 <td width="333" align="center">
-                    <!-- ÀÌ¹ÌÁö´Â º¤ÅÍÀÇ 0¹øÁö¿¡ ÇØ´çµÇ´Â°É °¡Á®¿Â´Ù. for¹®À» µ¹·Á td¸¦ Ãâ·ÂÇØ¾ß ÇÑ´Ù.--> <!-- È®ÀåÀÚ´Â ÀÌ¹ÌÁö¾È¿¡ ÀÖÀ¸¹Ç·Î ±ÄÀÌ ÀûÁö ¾Ê¾Æµµ µÈ´Ù. -->
-                    <!-- ÀÌ¹ÌÁö¸¦ ´©¸£¸é ¹Ù·Î »ó¼¼Á¤º¸·Î ³Ñ¾î°¥¼ö ÀÖµµ·Ï ÇÏ±âÀ§ÇØ  <a>ÅÂ±×¸¦ °É°í, No¿¡ ´ëÇÑ »ó¼¼Á¤º¸°¡ Ãâ·ÂµÇµµ·Ï ÇÏ°í
-        ÀÌ¸§À» »çÁø¹Ø¿¡ Ãâ·ÂÇÏµµ·Ï ÇÑ´Ù. --> <a
+                    <!-- ì´ë¯¸ì§€ëŠ” ë²¡í„°ì˜ 0ë²ˆì§€ì— í•´ë‹¹ë˜ëŠ”ê±¸ ê°€ì ¸ì˜¨ë‹¤. forë¬¸ì„ ëŒë ¤ tdë¥¼ ì¶œë ¥í•´ì•¼ í•œë‹¤.--> <!-- í™•ìž¥ìžëŠ” ì´ë¯¸ì§€ì•ˆì— ìžˆìœ¼ë¯€ë¡œ ê¶‚ì´ ì ì§€ ì•Šì•„ë„ ëœë‹¤. -->
+                    <!-- ì´ë¯¸ì§€ë¥¼ ëˆ„ë¥´ë©´ ë°”ë¡œ ìƒì„¸ì •ë³´ë¡œ ë„˜ì–´ê°ˆìˆ˜ ìžˆë„ë¡ í•˜ê¸°ìœ„í•´  <a>íƒœê·¸ë¥¼ ê±¸ê³ , Noì— ëŒ€í•œ ìƒì„¸ì •ë³´ê°€ ì¶œë ¥ë˜ë„ë¡ í•˜ê³ 
+        ì´ë¦„ì„ ì‚¬ì§„ë°‘ì— ì¶œë ¥í•˜ë„ë¡ í•œë‹¤. --> <a
                     href="CarReserveInfo.jsp?no=<%=bean.getNo()%>"> <img alt=""
                         src="img/<%=bean.getImg()%>" width="300" height="220">
                 </a>
                     <p>
-                        Â÷·®¸í :
+                        ì°¨ëŸ‰ëª… :
                         <%=bean.getName()%>
                 </td>
  
@@ -49,21 +49,21 @@
         </table>
  
         <p>
-            <font size="4" color="gray"> Â÷·® °Ë»ö ÇÏ±â </font><br> <br> <br>
-            <!-- Á¾·ù¸¦ ¼±ÅÃÇÏ°í °Ë»öÀ» ÇÏ¸é Á¾·ù¶ó´Â µ¥ÀÌÅÍµé °¡Áö°í ³Ñ¾î°¡¾ßÇÏ±â ¶§¹®¿¡ formÇü½ÄÀ» »ç¿ëÇÑ´Ù. -->
+            <font size="4" color="gray"> ì°¨ëŸ‰ ê²€ìƒ‰ í•˜ê¸° </font><br> <br> <br>
+            <!-- ì¢…ë¥˜ë¥¼ ì„ íƒí•˜ê³  ê²€ìƒ‰ì„ í•˜ë©´ ì¢…ë¥˜ë¼ëŠ” ë°ì´í„°ë“¤ ê°€ì§€ê³  ë„˜ì–´ê°€ì•¼í•˜ê¸° ë•Œë¬¸ì— formí˜•ì‹ì„ ì‚¬ìš©í•œë‹¤. -->
         <form action="RentcarMain.jsp?center=CarCategoryList.jsp"
             method="post">
-            <font size="3" color="gray"> <b>Â÷·® °Ë»ö ÇÏ±â</b>
+            <font size="3" color="gray"> <b>ì°¨ëŸ‰ ê²€ìƒ‰ í•˜ê¸°</b>
             </font>&nbsp;&nbsp; <select name="category">
-                <option value="1">¼ÒÇü</option>
-                <option value="2">ÁßÇü</option>
-                <option value="3">´ëÇü</option>
-            </select>&nbsp;&nbsp; <input type="submit" value="°Ë»ö"> &nbsp;&nbsp;
+                <option value="1">ì†Œí˜•</option>
+                <option value="2">ì¤‘í˜•</option>
+                <option value="3">ëŒ€í˜•</option>
+            </select>&nbsp;&nbsp; <input type="submit" value="ê²€ìƒ‰"> &nbsp;&nbsp;
  
         </form>
         <button
-            onclick="location.href='RentcarMain.jsp?center=CarAllList.jsp'">ÀüÃ¼
-            °Ë»ö</button>
+            onclick="location.href='RentcarMain.jsp?center=CarAllList.jsp'">ì „ì²´
+            ê²€ìƒ‰</button>
  
     </center>
 </body>

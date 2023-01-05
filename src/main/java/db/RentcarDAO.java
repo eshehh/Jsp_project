@@ -197,9 +197,11 @@ public class RentcarDAO {
     }
  
     // 회원 정보가 있는지를 비교한다.
+	
+	
 	/*
-	 * public int getMember(String id, String pass) { int result = 0; // 0이면 회원이 없다고
-	 * 가정 getcon();
+	 * public int getMember(String id, String pass) { int result = 0; // 0이면 회원이
+	 * 없다고가정 getcon();
 	 * 
 	 * try { String sql = "select count(*) from member where id=? and pass1=?";
 	 * pstmt = con.prepareStatement(sql); // sql문에 ?표가 들어가 있으면 초기 인덱스 값을 할당해주어야 한다.
@@ -217,6 +219,8 @@ public class RentcarDAO {
 	 * 
 	 * }
 	 */
+	 
+	 
  
     // 하나의 예약 정보를 저장하는 메소드
     public void setReserveCar(CarReserveBean bean) {
@@ -306,7 +310,7 @@ public class RentcarDAO {
         getcon();
  
         try {
-            String sql = "delete from carreserve where id=? and rday=?";
+            String sql = "delete from CARRESERVE where ID=? and RDAY=?";
             pstmt = con.prepareStatement(sql);
             // ?에 값을 넣기
  
