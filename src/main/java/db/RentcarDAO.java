@@ -310,7 +310,7 @@ public class RentcarDAO {
         getcon();
  
         try {
-            String sql = "delete from CARRESERVE where ID=? and RDAY=?";
+            String sql = "delete from carreserve where id = ? and rday = ?";
             pstmt = con.prepareStatement(sql);
             // ?에 값을 넣기
  

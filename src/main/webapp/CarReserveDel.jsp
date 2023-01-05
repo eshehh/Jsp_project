@@ -14,7 +14,7 @@
     
      RentcarDAO rdao = new RentcarDAO();
     //예약삭제 메소드 호출
-    rdao.carRemoveReserve(id,rday);
+    rdao.carRemoveReserve(id, rday);
     System.out.println("두번째"+id);
     response.sendRedirect("RentcarMain.jsp"); 
 %>

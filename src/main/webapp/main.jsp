@@ -50,27 +50,21 @@
             <tr>
                 <td>아이디:</td><td><%= id %></td>
             </tr>
-            
             <tr>
                 <td>이름:</td><td><%=rs.getString("name")%></td>
-            </tr>
-            
+            </tr>           
             <tr>
-                <td>비밀번호:</td><td><%=rs.getString("password") %></td>
-            </tr>
-            
+                <td>비밀번호:</td><td><%=rs.getString("passwd") %></td>
+            </tr>            
             <tr>
                 <td>나이:</td><td><%=rs.getString("age") %></td>
-            </tr>
-            
+            </tr>            
             <tr>
                 <td>성별:</td><td><%=rs.getString("gender") %></td>
             </tr>
-            
             <tr>
                 <td>이메일:</td><td><%=rs.getString("email") %></td>
-            </tr>
-            
+            </tr>      
         </table>
         
     <%
@@ -80,19 +74,16 @@
         }
     %>
     <br>
+    <!-- <a href="modifyForm.jsp" align = "center">정보수정</a>    정보수정을 원하면 modifyForm.jsp로 이동한다 -->
     
-    <a href="modifyForm.jsp" align = "center">정보수정</a>    <!-- 정보수정을 원하면 modifyForm.jsp로 이동한다 -->
-    
-    <%
+   <%--  <%
         if (id.equals("admin")) {    //admin이라는 아이디는 관리자이다. 관리자가 로그인 하였을 시에는 관리자모드 접속을 하도록 코딩하였다.
     %>
     <!-- //관리자(admin)접속시 -->
     <a href=" member_list.jsp" align ="center">관리자모드 접속(목록 보기 가능)</a>
     <%
         }
-    %>
-    
- 
+    %> --%>
   <form action ="RentcarMain.jsp"><input type="submit" value="메인으로"></form>
   
     </center>
