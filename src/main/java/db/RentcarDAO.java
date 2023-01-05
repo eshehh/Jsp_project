@@ -304,6 +304,7 @@ public class RentcarDAO {
     }
  
     // 하나의 예약 삭제
+//    public void carRemoveReserve(String id, String rday)
     public void carRemoveReserve(String id, String rday)
  
     {

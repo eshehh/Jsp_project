@@ -8,8 +8,8 @@
 <% 
     //차량 예약을 삭제하는 페이지
     //쿼리문을 사용하기위한 pk(기본키 값으로 사용하기 위해) id와 대여일을 파라미터로 받는다.
-    String id = request.getParameter("ID");
-    String rday = request.getParameter("RDAY");
+    String id = request.getParameter("id");
+    String rday = request.getParameter("rday");
     System.out.println("첫번째"+ id);
     
      RentcarDAO rdao = new RentcarDAO();

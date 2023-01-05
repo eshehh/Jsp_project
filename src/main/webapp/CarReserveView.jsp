@@ -72,7 +72,7 @@
                 <td width="60" align="center"><%=bean.getUsenavi()%></td>
                 <!-- 삭제 페이지로 이동함 -->
                 <td width="90" align="center">
-                    <button onclick="location.href='CarReserveDel.jsp'">삭제</button>
+                    <button onclick="location.href='CarReserveDel.jsp?id=<%=id%>&rday=<%=bean.getRday()%>'">삭제</button>
                 </td>
             </tr>
             <%
