@@ -42,7 +42,7 @@
                 <td width="150" align="center">이름</td>
                 <td width="150" align="center">대여일</td>
                 <td width="60" align="center">대여기간</td>
-                <td width="100" align="center">금액</td>
+                <td width="100" align="center">차량금액</td>
                 <td width="60" align="center">수량</td>
                 <td width="60" align="center">보험</td>
                 <td width="60" align="center">wifi</td>
