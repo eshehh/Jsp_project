@@ -1,1 +1,1 @@
-# Jsp_project
+JSP 프로젝트 - 자동차 렌트 시스템 
